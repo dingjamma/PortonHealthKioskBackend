@@ -24,4 +24,8 @@ export default (app: Application) => {
   router.post('/user/login', controller.user.logIn)
   router.post('/user/logout', controller.user.logOut)
   router.get('/user/current', controller.user.currentUser)
+
+  router.post('/clinic/adddoctor', controller.clinic.addDoctor)
+  router.get('/clinic/getdoctor', controller.clinic.getDoctor)
+
 }
