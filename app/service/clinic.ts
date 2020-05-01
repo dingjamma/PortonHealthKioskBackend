@@ -50,22 +50,35 @@ export default class ClinicService extends Service {
   @authenticated("admin")
   public async updateClinic(
     conditions: MongooseFilterQuery<
-      Pick<IClinic, "address" | "phone" | "email" | "name" | "ownerId">
+      Pick<
+        IClinic,
+        | "streetAddress"
+        | "city"
+        | "postcode"
+        | "phone"
+        | "email"
+        | "name"
+        // | "adminId"
+      >
     >,
     doc: IClinic
   ) {
     return Clinic.update(conditions, doc).exec();
   }
-  @authenticated("admin")
+
+  @authenticated("clinic")
   public async createDoctor(doc: IDoctor) {
     const doctor = new Doctor(doc);
     return doctor.save();
   }
-  public async getDoctors(
+
+  @authenticated("clinic")
+  public async updateDoctor(
     conditions: MongooseFilterQuery<
-      Pick<IDoctor, "doctorname" | "phone" | "email">
-    >
+      Pick<IDoctor, "phone" | "email" | "_id" | "doctorname">
+    >,
+    doc: IAppointment
   ) {
-    return Doctor.find(conditions).exec();
+    return Doctor.update(conditions, doc).exec();
   }
 }

@@ -60,8 +60,10 @@ export interface IClinic extends mongoose.Document {
   name: string;
   phone: string;
   email?: string;
-  address: IAddress;
-  ownerId: string;
+  streetAddress: string;
+  city: string;
+  postcode: string;
+  // adminId: string;
 }
 
 export const Clinic = mongoose.model<IClinic>(
@@ -70,8 +72,10 @@ export const Clinic = mongoose.model<IClinic>(
     name: { type: String, required: true },
     phone: { type: String, required: true },
     email: String,
-    address: { type: Address, required: true },
-    ownerId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    streetAddress: { type: String, required: true },
+    city: { type: String, required: true },
+    postcode: { type: String, required: true },
+    // adminId: { type: mongoose.Schema.Types.ObjectId, required: true },
   })
 );
 

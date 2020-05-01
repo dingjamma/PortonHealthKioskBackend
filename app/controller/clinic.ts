@@ -31,13 +31,15 @@ export default class ClinicController extends Controller {
     );
     this.ctx.body = { success: true, result };
   }
-  public async addDoctor() {
+  public async createDoctor() {
     const result = await this.clinicService.createDoctor(this.ctx.request.body);
     this.ctx.body = { success: true, result };
   }
-  public async getDoctor() {
-    const result = await this.clinicService.getDoctors(
-      this.ctx.request.body.conditions
+
+  public async updateDoctor() {
+    const result = await this.clinicService.updateDoctor(
+      this.ctx.request.body.conditions,
+      this.ctx.request.body.doc
     );
     this.ctx.body = { success: true, result };
   }
