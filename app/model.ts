@@ -57,25 +57,27 @@ export const Appointment = mongoose.model<IAppointment>(
 );
 
 export interface IClinic extends mongoose.Document {
+  disable: boolean;
   name: string;
   phone: string;
   email?: string;
   streetAddress: string;
   city: string;
   postcode: string;
-  // adminId: string;
+  clinicId: string;
 }
 
 export const Clinic = mongoose.model<IClinic>(
   "Clinic",
   new mongoose.Schema({
+    disable: { type: Boolean, required: true },
     name: { type: String, required: true },
     phone: { type: String, required: true },
     email: String,
     streetAddress: { type: String, required: true },
     city: { type: String, required: true },
     postcode: { type: String, required: true },
-    // adminId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    clinicId: { type: mongoose.Schema.Types.ObjectId, required: true },
   })
 );
 

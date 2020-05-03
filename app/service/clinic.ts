@@ -52,13 +52,14 @@ export default class ClinicService extends Service {
     conditions: MongooseFilterQuery<
       Pick<
         IClinic,
+        | "disable"
         | "streetAddress"
         | "city"
         | "postcode"
         | "phone"
         | "email"
         | "name"
-        // | "adminId"
+        | "clinicId"
       >
     >,
     doc: IClinic
