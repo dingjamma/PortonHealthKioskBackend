@@ -1,4 +1,4 @@
-import { COLLINGWOOD, SUNRISE } from './users'
+import { COLLINGWOOD, SUNRISE, MIYAGI} from './users'
 import { InputType } from '../model/checkinformfield'
 
 export const clinics = [
@@ -37,6 +37,30 @@ export const clinics = [
       postcode: 'V5L 1V4'
     },
     ownerId: SUNRISE,
+    formFields: [
+      {
+        inputType: InputType.LAST_NAME,
+        name: 'familyName',
+        label: 'Last Name'
+      },
+      {
+        inputType: InputType.BIRTHDAY,
+        name: 'birthday',
+        label: 'Date of Birth'
+      }
+    ]
+  },
+  {
+    name: "Mr.Miyagi's Reiki",
+    phone: '(604) 555-3786',
+    address: {
+      street: '666 Doesntwork Avenue',
+      city: 'Port Moody',
+      province: 'BC',
+      country: 'Canada',
+      postcode: 'V8B 2Ic'
+    },
+    ownerId: MIYAGI,
     formFields: [
       {
         inputType: InputType.LAST_NAME,
