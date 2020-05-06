@@ -1,5 +1,6 @@
 import { COLLINGWOOD, SUNRISE, MIYAGI } from './users'
 import { InputType } from '../model/checkinformfield'
+// import {isEnabled } from '../model/clinic'
 
 export const clinics = [
   {
@@ -25,7 +26,9 @@ export const clinics = [
         label: 'Date of Birth'
       }
     ],
-    isEnabled: { disabled: false }
+    isEnabled:{
+      disabled:false
+    }
   },
   {
     name: 'Sunrise Medical Clinic',
@@ -50,7 +53,9 @@ export const clinics = [
         label: 'Date of Birth'
       }
     ],
-    isEnabled: { disabled: false }
+    isEnabled:{
+      disabled:false,
+    }
   },
   {
     name: "Mr.Miyagi's Reiki",
@@ -75,6 +80,8 @@ export const clinics = [
         label: 'Date of Birth'
       }
     ],
-    isEnabled: { disabled: false }
+    isEnabled:{
+      disabled:false,
+    }
   }
 ]

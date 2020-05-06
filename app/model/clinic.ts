@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose'
 import { IAddress, Address } from './address'
-import { IUser, User } from './user'
+import { IUser } from './user'
 
 export type ClinicQuery = mongoose.MongooseFilterQuery<
   Pick<
@@ -22,7 +22,7 @@ export interface IClinic extends mongoose.Document {
   address: IAddress
   ownerId: string
   formFields: string[]
-  isEnabled: IUser
+  isEnabled?: IUser
 }
 export const Clinic = mongoose.model<IClinic>(
   'Clinic',
@@ -43,6 +43,9 @@ export const Clinic = mongoose.model<IClinic>(
         required: true
       }
     ],
-    isEnabled: { type: User, required: true }
+    isEnabled: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user'
+    }
   })
 )
