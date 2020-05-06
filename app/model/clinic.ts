@@ -1,10 +1,17 @@
 import * as mongoose from 'mongoose'
 import { IAddress, Address } from './address'
+import { IUser, User } from './user'
 
 export type ClinicQuery = mongoose.MongooseFilterQuery<
   Pick<
     IClinic,
-    'address' | 'phone' | 'email' | 'name' | 'ownerId' | 'formFields'
+    | 'address'
+    | 'phone'
+    | 'email'
+    | 'name'
+    | 'ownerId'
+    | 'formFields'
+    | 'isEnabled'
   >
 >
 
@@ -15,8 +22,8 @@ export interface IClinic extends mongoose.Document {
   address: IAddress
   ownerId: string
   formFields: string[]
+  isEnabled: IUser
 }
-
 export const Clinic = mongoose.model<IClinic>(
   'Clinic',
   new mongoose.Schema({
@@ -35,6 +42,7 @@ export const Clinic = mongoose.model<IClinic>(
         ref: 'CheckInFormField',
         required: true
       }
-    ]
+    ],
+    isEnabled: { type: User, required: true }
   })
 )

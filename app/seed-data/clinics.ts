@@ -1,4 +1,4 @@
-import { COLLINGWOOD, SUNRISE, MIYAGI} from './users'
+import { COLLINGWOOD, SUNRISE, MIYAGI } from './users'
 import { InputType } from '../model/checkinformfield'
 
 export const clinics = [
@@ -24,7 +24,8 @@ export const clinics = [
         name: 'birthday',
         label: 'Date of Birth'
       }
-    ]
+    ],
+    isEnabled: { disabled: false }
   },
   {
     name: 'Sunrise Medical Clinic',
@@ -48,7 +49,8 @@ export const clinics = [
         name: 'birthday',
         label: 'Date of Birth'
       }
-    ]
+    ],
+    isEnabled: { disabled: false }
   },
   {
     name: "Mr.Miyagi's Reiki",
@@ -58,7 +60,7 @@ export const clinics = [
       city: 'Port Moody',
       province: 'BC',
       country: 'Canada',
-      postcode: 'V8B 2Ic'
+      postcode: 'V8B 2IC'
     },
     ownerId: MIYAGI,
     formFields: [
@@ -72,6 +74,7 @@ export const clinics = [
         name: 'birthday',
         label: 'Date of Birth'
       }
-    ]
+    ],
+    isEnabled: { disabled: false }
   }
 ]
